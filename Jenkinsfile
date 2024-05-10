@@ -24,6 +24,7 @@ pipeline {
                     // Execute commands within the PHP container
                     sh '''
                         docker-compose exec -T php sh -c "
+                            ls &&
                             cd /var/www/html &&
                             ls
                         "
