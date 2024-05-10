@@ -23,7 +23,7 @@ pipeline {
 
                     // Execute commands within the PHP container
                     sh '''
-                        docker-compose exec php sh -c "
+                        docker-compose exec -T php sh -c "
                             cd /var/www/html &&
                             composer install
                         "
