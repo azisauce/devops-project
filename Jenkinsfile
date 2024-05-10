@@ -16,6 +16,21 @@ pipeline {
         sh 'docker-compose up --build'
       }
     }
+    stage('Installing Composer Dependencies') {
+            steps {
+                script {
+                    // Ensure Docker Compose is up
+                    sh 'docker-compose up -d'
+
+                    // Execute commands within the PHP container
+                    sh '''
+                        docker-compose exec php sh -c "
+                            cd /var/www/html &&
+                            composer install
+                        "
+                    '''
+                }
+            }
     stage('Deploying') {
       agent any
       steps {
