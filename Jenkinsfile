@@ -18,8 +18,7 @@ pipeline {
     }
     stage('Installing Composer Dependencies') {
             steps {
-                script {
-                    // Ensure Docker Compose is up
+                // Ensure Docker Compose is up
                     sh 'docker-compose up -d'
 
                     // Execute commands within the PHP container
