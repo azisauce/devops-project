@@ -25,7 +25,7 @@ pipeline {
                     sh '''
                         docker-compose exec -T php sh -c "
                             cd /var/www/html &&
-                            composer install
+                            ls
                         "
                     '''
                 }
