@@ -13,7 +13,7 @@ pipeline {
     stage('Building') {
       // Creating docker containers
       steps {
-        sh 'docker-compose up --build'
+        sh 'docker-compose up --build -d'
       }
     }
     stage('Installing Composer Dependencies') {
