@@ -20,22 +20,7 @@ pipeline {
             steps {
                 // Ensure Docker Compose is up
                     sh 'docker-compose up -d'
-
-                    // Execute commands within the PHP container
-                    sh '''
-                        docker-compose exec -T php sh -c "
-                            ls && cd html/ && ls
-                        "
-                    '''
                 }
             }
-    stage('Deploying') {
-      agent any
-      steps {
-        echo ' Deploying...'
-        sh 'docker images'
-
-      }
-    }
   }
 }
