@@ -9,7 +9,7 @@ services:
     networks:
       - internal
     volumes:
-      - .//application/:/var/www/html/
+      - ./application/:/var/www/html/
       - ./logs/nginx:/var/log/nginx/
     container_name: nginx
   php:
