@@ -9,7 +9,7 @@ services:
     networks:
       - internal
     volumes:
-      - ./application/:/var/www/html/
+      - ./var/jenkins_home/workspace/Project-Docker/application/:/var/www/html/
       - ./logs/nginx:/var/log/nginx/
     container_name: nginx
   php:
@@ -19,7 +19,7 @@ services:
     networks:
       - internal
     volumes:
-      - ./application/:/var/www/html/
+      - ./var/jenkins_home/workspace/Project-Docker/application/:/var/www/html/
       - ./logs/php.log:/var/log/fpm-php.www.log
     container_name: php
     expose:
