@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Ensure Docker Compose is up
                     sh 'docker-compose up -d'
-                    sh 'docker-compose exec -t php /bin/bash -c 'cd /var/www/html && cp .env.example .env && composer install'
+                    sh 'docker exec -t php /bin/bash -c 'cd /var/www/html && cp .env.example .env && composer install'
                     sh 'php artisan key:generate'
 
                 }
