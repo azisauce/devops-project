@@ -22,7 +22,7 @@ pipeline {
                     sh 'docker-compose up -d'
                     sh 'docker exec -t php /bin/bash -c \'cp .env.example .env\''
                     sh 'docker exec -t php /bin/bash -c \'composer install\''
-                    sh 'php artisan key:generate'
+                    sh 'docker exec -t php /bin/bash -c \'php artisan key:generate\''
 
                 }
             }
