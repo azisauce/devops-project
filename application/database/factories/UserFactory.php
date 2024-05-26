@@ -22,9 +22,21 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+          $names = ['Aziz', 'Marwen', 'Imen', 'Amal', 'Youssef'];
+          $Familynames = ['Torki', 'Rhaiem', 'Sadraoui', 'Jaoua', 'Kchao'];
+
+        static $counter = 0;
+
+        // Ensure the counter stays within the bounds of the array
+        $name = $names[$counter % count($names)];
+        $Familyname = $Familynames[$counter % count($Familynames)];
+
+        $counter++;
+
+
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'name' => $name,
+            'email' => strtolower($Familyname) . strtolower($name) . $counter . '@example.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
